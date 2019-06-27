@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+    <!-- Theme Made By www.w3schools.com - No Copyright -->
+    <title>User List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div layout:fragment="custom-content">
+    <div class="container">
+        <div class="row" style="text-align: center">
+            <div class="col-md-6">
+                <h1>User List</h1>
+            </div>
+            <div class="col-md-6">
+                <h3><a th:href="@{/user/add}">Add New User</a></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12"  style="text-align: center">
+                <table class="table table-striped">
+                    <tr class="">
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Username</td>
+                        <td>Password</td>
+                        <td>Gender</td>
+                        <td>Country</td>
+                        <td colspan="2">Action</td>
+                    </tr>
+                    <tr th:each="u : ${list}">
+                        <td th:text="${u.id}">1</td>
+                        <td th:text="${u.name}">Shuvo</td>
+                        <td th:text="${u.username}">admin</td>
+                        <td th:text="${u.password}">1234</td>
+                        <td th:text="${u.gender}">Male</td>
+                        <td th:text="${u.country}">Bangladesh</td>
+                        <td><a th:href="@{'/user/edit/'+${u.id}}">Edit</a></td>
+                        <td><a  th:href="@{'/user/delete/'+${u.id}}">Delete</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
