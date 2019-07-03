@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Page</title>
+</head>
+<body>
+<h1>Add Department</h1>
+<span style="color: red;" th:text="${errMsg}"></span>
+<span style="color: limegreen;" th:text="${successMsg}"></span>
+<form th:object="${student}" th:action="@{/student}" th:method="POST">
+    <input type="text" th:field="*{name}"/>
+    <input type="text" th:field="*{email}"/>
+    <select th:field="*{department}">
+        <option th:each="dep : ${depList}" th:value="${dep.id}"><span th:text="${dep.name}"></span></option>
+    </select>
+    <button type="submit">Save</button>
+</form>
+
+<hr/>
+
+<h1>Student List</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Student Name</th>
+        <th>Student Email</th>
+        <th>Department Name</th>
+    </tr>
+    <tr th:each="stu : ${stuList}">
+        <td th:text="${stu.id}"></td>
+        <td th:text="${stu.name}"></td>
+        <td th:text="${stu.email}"></td>
+        <td th:text="${stu.department.name}"></td>
+    </tr>
+</table>
+</body>
+</html>
