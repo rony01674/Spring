@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Page</title>
+</head>
+<body>
+<h1>Student List By Department</h1>
+<form th:action="@{/age}" th:method="get">
+    <input type="number" name="age" />
+    <button type="submit">Check</button>
+</form>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Student Name</th>
+        <th>Student Email</th>
+        <th>Department Name</th>
+    </tr>
+    <tr th:each="profile : ${stuList}">
+        <td th:text="${profile.id}"></td>
+        <td th:text="${profile.name}"></td>
+        <td th:text="${profile.email}"></td>
+        <td th:text="${profile.department.name}"></td>
+    </tr>
+</table>
+</body>
+</html>

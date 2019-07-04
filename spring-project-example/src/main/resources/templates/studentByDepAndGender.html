@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Page</title>
+</head>
+<body>
+<h1>Student List By Department</h1>
+<form th:action="@{/stubygdepandgender}" th:method="get">
+    <select name="depId">
+        <option th:each="d : ${dList}" th:value="${d.id}"><span th:text="${d.name}"></span></option>
+    </select>
+    <select name="gender">
+        <option th:value="Male">Male</option>
+        <option th:value="Female">Female</option>
+    </select>
+    <tr th:text="${count}"></tr>
+    <button type="submit">Check</button>
+</form>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Student Name</th>
+        <th>Age</th>
+        <th>Student Email</th>
+        <th>Gender</th>
+        <th>Department Name</th>
+    </tr>
+    <tr th:each="s : ${listByDep}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.name}"></td>
+        <td th:text="${s.age}"></td>
+        <td th:text="${s.email}"></td>
+        <td th:text="${s.gender}"></td>
+        <td th:text="${s.department.name}"></td>
+    </tr>
+</table>
+</body>
+</html>

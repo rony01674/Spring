@@ -10,7 +10,9 @@ public class Student {
     private Long id;
 
     private String name;
+    private int age;
     private String email;
+    private String gender;
 
     @ManyToOne      // This will create a foreign key of department id
     @JoinColumn(name = "dep_id", nullable = false)
@@ -35,12 +37,28 @@ public class Student {
         this.name = name;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public Department getDepartment() {

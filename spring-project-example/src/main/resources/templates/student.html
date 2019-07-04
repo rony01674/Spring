@@ -10,7 +10,10 @@
 <span style="color: limegreen;" th:text="${successMsg}"></span>
 <form th:object="${student}" th:action="@{/student}" th:method="POST">
     <input type="text" th:field="*{name}"/>
-    <input type="text" th:field="*{email}"/>
+    <input type="number" th:field="*{age}"/>
+    <input type="email" th:field="*{email}"/>
+    <input type="radio" value="Male" th:field="*{gender}"/>Male
+    <input type="radio" value="Female" th:field="*{gender}"/>Female
     <select th:field="*{department}">
         <option th:each="dep : ${depList}" th:value="${dep.id}"><span th:text="${dep.name}"></span></option>
     </select>
@@ -24,13 +27,17 @@
     <tr>
         <th>Id</th>
         <th>Student Name</th>
+        <th>Age</th>
         <th>Student Email</th>
+        <th>Gender</th>
         <th>Department Name</th>
     </tr>
     <tr th:each="stu : ${stuList}">
         <td th:text="${stu.id}"></td>
         <td th:text="${stu.name}"></td>
+        <td th:text="${stu.age}"></td>
         <td th:text="${stu.email}"></td>
+        <td th:text="${stu.gender}"></td>
         <td th:text="${stu.department.name}"></td>
     </tr>
 </table>

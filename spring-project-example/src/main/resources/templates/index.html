@@ -3,28 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" th:href="@{static/style.css}"/>
 </head>
 <body>
-<h1>Add Department</h1>
-<span style="color: red;" th:text="${errMsg}"></span>
-<span style="color: limegreen;" th:text="${successMsg}"></span>
-<form th:object="${department}" th:action="@{/}" th:method="POST">
-    <input type="text" th:field="*{name}"/>
-    <button type="submit">Save</button>
-</form>
+<div class="container">
+    <h1>Add Department</h1>
+    <span style="color: red;" th:text="${errMsg}"></span>
+    <span style="color: limegreen;" th:text="${successMsg}"></span>
+    <form th:object="${department}" th:action="@{/}" th:method="POST">
+        <input type="text" th:field="*{name}"/>
+        <button type="submit">Save</button>
+    </form>
 
-<hr/>
+    <hr/>
 
-<h1>Department List</h1>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Department Name</th>
-    </tr>
-    <tr th:each="d : ${list}">
-        <td th:text="${d.id}"></td>
-        <td th:text="${d.name}"></td>
-    </tr>
-</table>
+    <h1>Department List</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Department Name</th>
+        </tr>
+        <tr th:each="d : ${list}">
+            <td th:text="${d.id}"></td>
+            <td th:text="${d.name}"></td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
