@@ -17,6 +17,13 @@
 <table>
     <tr>
         <th>File Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Birthday</th>
+        <th>Hobby</th>
+        <th>Contact</th>
+        <th>Address</th>
         <th>File Extension</th>
         <th>File Size</th>
         <th>File Path</th>
@@ -24,6 +31,13 @@
     </tr>
     <tr th:each="u : ${list}">
         <td th:text="${u.getFileName()}"></td>
+        <td th:text="${u.getAge()}"></td>
+        <td th:text="${u.getGender()}"></td>
+        <td th:text="${u.getEmail()}"></td>
+        <td th:text="${u.birthDate}"></td>
+        <td th:text="${u.hobby}"></td>
+        <td th:text="${u.contact}"></td>
+        <td th:text="${u.address}"></td>
         <td th:text="${u.getFileExtension()}"></td>
         <td th:text="${u.getFileSize()}"></td>
         <td th:text="${u.getFilePath()}"></td>
