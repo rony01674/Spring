@@ -77,6 +77,7 @@ public class StudentController {
         return "studentByAge";
     }
 
+
     //This method is use for studentByDepAndGender.html page
     @GetMapping(value = "/stubygdepandgender")
     public String displayByDepartmentAndGender(Model model, @RequestParam(value = "depId", required = false,
