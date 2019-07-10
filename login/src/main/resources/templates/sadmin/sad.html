@@ -6,13 +6,10 @@
     <title>Title</title>
 </head>
 <body>
-
-<h1>Hello</h1>
-<span sec:authorize="!isAuthenticated()">
-    <a th:href="@{/login}">Login</a>
+<h1><a th:href="@{/logout}">Logout</a> </h1>
+<span sec:authorize="hasRole('ROLE_SUPERADMIN')">
+    Super ADMIN only can Access Me
 </span>
-
-<a th:href="@{/logout}">Logout</a>
 
 </body>
 </html>
