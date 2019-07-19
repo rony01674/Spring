@@ -10,4 +10,9 @@ public class PageController {
     public String displayIndex(){
         return "index";
     }
+
+    @GetMapping(value = "login")
+    public String login(){
+        return "login";
+    }
 }

@@ -18,11 +18,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.authorizeRequests()
                 .antMatchers(
                         "/css/**",
+                        "/font/**",
                         "/images/**",
                         "/js/**",
                         "/scss/**",
                         "/vendor/**",
-                        "/public/**",
                         "/"
                 ).permitAll()
                 .anyRequest()
