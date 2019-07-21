@@ -170,6 +170,17 @@ public class User implements Serializable {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
     }
 
     public String getFilePath() {

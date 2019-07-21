@@ -62,7 +62,7 @@ public class User {
     @NotEmpty(message = "Upload your photo")
     private String imagePath;
 
-    @NotEmpty(message = "Select an User")
+    @NotEmpty(message = "Select a role")
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
