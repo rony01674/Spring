@@ -1,7 +1,10 @@
-package com.project.entity;
+package com.project.entity.membershipType;
+
+import com.project.entity.ClassTime;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.Set;
 
 @Entity
 public class MembershipType {
@@ -18,10 +21,16 @@ public class MembershipType {
     private String membershipPeriod;
 
     @NotEmpty(message = "Enter amount")
-    private double membershipAmmount;
+    private double membershipAmount;
 
     @NotEmpty(message = "Select your workout time")
-    private String selectClass;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "membership_type_class_time",
+            joinColumns = @JoinColumn(name = "membership_type_id"),
+            inverseJoinColumns = @JoinColumn(name = "class_time_id")
+    )
+    private Set<ClassTime> selectClass;
 
     @NotEmpty(message = "Enter registration fee")
     private double regFee;
@@ -53,19 +62,19 @@ public class MembershipType {
         this.membershipPeriod = membershipPeriod;
     }
 
-    public double getMembershipAmmount() {
-        return membershipAmmount;
+    public double getMembershipAmount() {
+        return membershipAmount;
     }
 
-    public void setMembershipAmmount(double membershipAmmount) {
-        this.membershipAmmount = membershipAmmount;
+    public void setMembershipAmount(double membershipAmount) {
+        this.membershipAmount = membershipAmount;
     }
 
-    public String getSelectClass() {
+    public Set<ClassTime> getSelectClass() {
         return selectClass;
     }
 
-    public void setSelectClass(String selectClass) {
+    public void setSelectClass(Set<ClassTime> selectClass) {
         this.selectClass = selectClass;
     }
 

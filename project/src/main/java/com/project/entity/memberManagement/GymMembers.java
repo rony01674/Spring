@@ -1,5 +1,8 @@
-package com.project.entity;
+package com.project.entity.memberManagement;
 
+import com.project.entity.ClassTime;
+import com.project.entity.Role;
+import com.project.entity.membershipType.MembershipType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -9,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Set;
 
+@Entity
 public class GymMembers {
 
     @Id
@@ -91,9 +95,13 @@ public class GymMembers {
     private String membersGoal;
 
     @NotEmpty(message = "Select trial start date")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd-MMM-yyyy")
     private Date inquiryDate;
 
     @NotEmpty(message = "Select trial end date")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd-MMM-yyyy")
     private Date trialEndDate;
 
     @NotEmpty(message = "Select member type")
@@ -113,6 +121,10 @@ public class GymMembers {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd-MMM-yyy")
     private Date joiningDate;
+
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd-MMM-yyy")
+    private Date endDate;
 
     @NotEmpty(message = "Enter first payment date")
     private Date firstPaymentDate;

@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>CrossFit | Membership Add</title>
+    <title>CrossFit | Member List</title>
 </head>
 <body>
+
 <!-- body area -->
 <div layout:fragment="custom-content" id="wrapper">
 
@@ -22,87 +22,82 @@
         <div id="content">
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
                 <br/>
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-4">
                         <h1 class="h3 mb-4 text-gray-800">
                             <span class="icon">
-                                <i class="fa fa-users"></i>
+                                <i class="fa fa-th-list"></i>
                             </span>
-                        Add Membership</h1>
+                            Members List
+                        </h1>
                     </div>
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4">
-                        <a th:href="@{/membership-list}" class="btn btn-primary btn-icon-split float-right">
+                        <a th:href="@{#}" class="btn btn-primary btn-icon-split float-right">
                             <span class="icon text-white-50">
-                                <i class="fas fa-th-list"></i>
+                                <i class="fas fa-user-plus"></i>
                             </span>
-                            <span class="text">Membership List</span>
+                            <span class="text">Add Member</span>
                         </a>
                     </div>
                 </div>
 
                 <hr/>
+
                 <br/>
-
-                <!-- for adding membershipType type -->
                 <form>
+                    <h3>Personal Information</h3>
+                    <hr/>
                     <div class="row">
-                        <div class="col-lg-5">
-                            <label class="float-right">Membership Name</label>
+                        <div class="col-lg-2">
+                            <label class="float-right">Member Id</label>
                         </div>
-                        <div class="col-lg-7">
-                            <input type="text"/>
-                        </div>
-                    </div>
-                    <br/>
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <label class="float-right">Membership Period</label>
-                        </div>
-                        <div class="col-lg-7">
-                            <input type="text"/>
-                        </div>
-                    </div>
-                    <br/>
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <label class="float-right">Membership Amount</label>
-                        </div>
-                        <div class="col-lg-7">
-                            <input type="text"/>
-                        </div>
-                    </div>
-                    <br/>
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <label class="float-right">Select Class</label>
-                        </div>
-                        <div class="col-lg-7">
-                            <input type="text"/>
-                        </div>
-                    </div>
-                    <br/>
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <label class="float-right">Register Fee</label>
-                        </div>
-                        <div class="col-lg-7">
-                            <input type="text"/>
+                        <div class="col-lg-7 form-group">
+                            <input class="form-control" type="text"/>
                         </div>
                     </div>
 
-                    <br/>
                     <div class="row">
-                        <div class="col-md-7">
-                            <button class="btn btn-success float-right">Save Membership</button>
+                        <div class="col-lg-2">
+                            <label class="float-right">Member Name</label>
+                        </div>
+                        <div class="col-lg-7 form-group">
+                            <input class="form-control" type="text"/>
                         </div>
                     </div>
-                    <br/>
+
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label class="float-right">Father's Name</label>
+                        </div>
+                        <div class="col-lg-7 form-group">
+                            <input class="form-control" type="text"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label class="float-right">Gender</label>
+                        </div>
+                        <div class="col-lg-7 form-group">
+                            <input type="radio" name="male" th:value="Male"/>
+                            <label>Male</label>
+                            <input type="radio" name="male" th:value="Male"/>
+                            <label>Female</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label class="float-right">Date of birth</label>
+                        </div>
+                        <div class="col-lg-7 form-group">
+                            <input class="form-control" type="date"/>
+                        </div>
+                    </div>
                 </form>
-
 
             </div>
             <!-- /.container-fluid -->
@@ -115,7 +110,5 @@
 
 </div>
 <!-- End of Page Wrapper -->
-
-</div>
 </body>
 </html>

@@ -1,4 +1,6 @@
-package com.project.entity;
+package com.project.entity.memberWorkoutReport;
+
+import com.project.entity.memberManagement.GymMembers;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
