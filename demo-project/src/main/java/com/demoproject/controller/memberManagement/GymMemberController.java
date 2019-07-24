@@ -15,4 +15,9 @@ public class GymMemberController {
     public String addMember(){
         return "gym-member/add-member";
     }
+
+    @GetMapping(value = "/member-profile")
+    public String memberProfile(){
+        return "gym-member/member-profile";
+    }
 }

@@ -71,6 +71,8 @@ public class User {
     )
     private Set<Role> roles;
 
+    @NotEmpty(message = "Select Joining Date")
+    private Date joiningDate;
     public User() {
     }
 
@@ -192,5 +194,13 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Date getJoiningDate() {
+        return joiningDate;
+    }
+
+    public void setJoiningDate(Date joiningDate) {
+        this.joiningDate = joiningDate;
     }
 }

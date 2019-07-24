@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{fragments/layout.html}">
+      layout:decorate="~{fragments/layout.html}" >
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>CrossFit | Member List</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 
@@ -28,18 +24,18 @@
                     <div class="col-lg-4">
                         <h1 class="h3 mb-4 text-gray-800">
                             <span class="icon">
-                                <i class="fa fa-user"></i>
+                                <i class="fa fa-user-tie"></i>
                             </span>
-                            Add Member
+                            Add Staff Member
                         </h1>
                     </div>
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4">
-                        <a th:href="@{/members-list}" class="btn btn-primary btn-icon-split float-right">
+                        <a th:href="@{/staff-member-list}" class="btn btn-primary btn-icon-split float-right">
                             <span class="icon text-white-50">
                                 <i class="fas fa-th-list"></i>
                             </span>
-                            <span class="text">Members List</span>
+                            <span class="text">Staff Member's List</span>
                         </a>
                     </div>
                 </div>
@@ -61,7 +57,7 @@
 
                     <div class="row">
                         <div class="col-lg-2">
-                            <label class="float-right">Member Name</label>
+                            <label class="float-right">First Name</label>
                         </div>
                         <div class="col-lg-7 form-group">
                             <input class="form-control" type="text"/>
@@ -70,7 +66,7 @@
 
                     <div class="row">
                         <div class="col-lg-2">
-                            <label class="float-right">Father's Name</label>
+                            <label class="float-right">Last Name</label>
                         </div>
                         <div class="col-lg-7 form-group">
                             <input class="form-control" type="text"/>
@@ -145,68 +141,12 @@
                         </div>
                     </div>
 
-                    <h4>Physical Information</h4>
-                    <hr/>
                     <div class="row">
                         <div class="col-lg-2">
-                            <label class="float-right">Weight</label>
+                            <label class="float-right">National ID</label>
                         </div>
                         <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="KG"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Height</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="Inches"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Chest</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="Inches"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Waist</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="Inches"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Thigh</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="Inches"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Arms</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="Inches"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Fat</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="Percentage"/>
+                            <input class="form-control" type="text"/>
                         </div>
                     </div>
 
@@ -232,6 +172,29 @@
 
                     <div class="row">
                         <div class="col-lg-2">
+                            <label class="float-right">Role</label>
+                        </div>
+                        <div class="col-lg-7 form-group">
+                            <select class="form-control">
+                                <option>Select a Role</option>
+                                <option>Admin</option>
+                                <option>Trainer</option>
+                                <option>User</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label class="float-right">Joining Date</label>
+                        </div>
+                        <div class="col-lg-7 form-group">
+                            <input class="form-control" type="date"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-2">
                             <label class="float-right">Profile Picture</label>
                         </div>
                         <div class="col-lg-7 form-group">
@@ -239,105 +202,6 @@
                         </div>
                     </div>
 
-                    <h4>More Information</h4>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Member's Goal</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <select class="form-control">
-                                <option>Select Member's Goal</option>
-                                <option>Weight Gain</option>
-                                <option>Weight Loss</option>
-                                <option>Fitness</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Trial Start Date</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="date"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Trial End Date</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="date"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Member Type</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input type="radio"/>
-                            <label>Member</label>
-                            <input type="radio"/>
-                            <label>Prospect</label>
-                            <input type="radio"/>
-                            <label>Alumni</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Membership</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <select class="form-control">
-                                <option>Select Membership</option>
-                                <option>Gold</option>
-                                <option>Platinum</option>
-                                <option>Silver</option>
-                                <option>Regular</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Select Class</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <select class="form-control">
-                                <option>Select Class Time</option>
-                                <option>Morning</option>
-                                <option>Evening</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Membership Valid From</label>
-                        </div>
-                        <div class="col-lg-2 form-group">
-                            <input class="form-control" type="date"/>
-                        </div>
-                        <div class="col-lg-1 form-group">
-                            <label>To</label>
-                        </div>
-                        <div class="col-lg-2 form-group">
-                            <input class="form-control" type="date"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">First Payment Date</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="date"/>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-lg-2">
                         </div>
@@ -350,6 +214,7 @@
                             </button>
                         </div>
                     </div>
+
                 </form>
 
                 <br/>

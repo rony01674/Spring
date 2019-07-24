@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{fragments/layout.html}">
+      layout:decorate="~{fragments/layout.html}" >
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>CrossFit | Membership List</title>
+    <meta charset="UTF-8">
+    <title>CrossFit | Staff Member List</title>
 </head>
 <body>
 <!-- body area -->
@@ -30,16 +25,16 @@
                             <span class="icon">
                                 <i class="fa fa-th-list"></i>
                             </span>
-                            Membership List
+                            Staff Member's List
                         </h1>
                     </div>
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4">
-                        <a th:href="@{membership-add}" class="btn btn-primary btn-icon-split float-right">
+                        <a th:href="@{/add-staff-member}" class="btn btn-primary btn-icon-split float-right">
                             <span class="icon text-white-50">
-                                <i class="fas fa-users"></i>
+                                <i class="fas fa-user-plus"></i>
                             </span>
-                            <span class="text">Add Membership</span>
+                            <span class="text">Add Staff Member</span>
                         </a>
                     </div>
                 </div>
@@ -52,28 +47,39 @@
                             <thead>
                             <tr>
                                 <th>Photo</th>
-                                <th>Membership Name</th>
-                                <th>Membership Period</th>
-                                <th>Register Fee</th>
+                                <th>Staff Name</th>
+                                <th>Joining Date</th>
+                                <th>Mobile Number</th>
+                                <th>Staff Type</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tfoot>
                             <tr>
                                 <th>Photo</th>
-                                <th>Membership Name</th>
-                                <th>Membership Period</th>
-                                <th>Register Fee</th>
+                                <th>Staff Name</th>
+                                <th>Joining Date</th>
+                                <th>Mobile Number</th>
+                                <th>Staff Type</th>
+                                <th>Status</th>
                                 <th>Action</th>
-                            </tr>
                             </tfoot>
                             <tbody>
                             <tr>
-                                <td><img th:src="@{/images/Gold-Membership.png}" width="20px" height="20px"/></td>
-                                <td>Gold</td>
-                                <td>5 years</td>
-                                <td>45000</td>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td></td>
+                                <td></td>
                                 <td>
+                                    <a th:href="@{#}">
+                                        <span class="icon text-primary">
+                                            <i class="fa fa-eye"></i>
+                                        </span>
+                                    </a>
+                                    <span></span>
                                     <a th:href="@{#}">
                                         <span class="icon text-info">
                                             <i class="fa fa-edit"></i>
@@ -88,11 +94,19 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><img th:src="@{#}" alt="Platinum"/> </td>
-                                <td>Platinum</td>
-                                <td>2 years</td>
-                                <td>20000</td>
+                                <td>Garrett Winters</td>
+                                <td>Accountant</td>
+                                <td>Tokyo</td>
+                                <td>63</td>
+                                <td></td>
+                                <td></td>
                                 <td>
+                                    <a th:href="@{#}">
+                                        <span class="icon text-primary">
+                                            <i class="fa fa-eye"></i>
+                                        </span>
+                                    </a>
+                                    <span></span>
                                     <a th:href="@{#}">
                                         <span class="icon text-info">
                                             <i class="fa fa-edit"></i>
@@ -106,12 +120,21 @@
                                     </a>
                                 </td>
                             </tr>
+                            </tr>
                             <tr>
-                                <td><img th:src="@{#}" alt="Silver"/> </td>
-                                <td>Silver</td>
-                                <td>1 year</td>
-                                <td>10000</td>
+                                <td>Ashton Cox</td>
+                                <td>Junior Technical Author</td>
+                                <td>San Francisco</td>
+                                <td>66</td>
+                                <td></td>
+                                <td></td>
                                 <td>
+                                    <a th:href="@{#}">
+                                        <span class="icon text-primary">
+                                            <i class="fa fa-eye"></i>
+                                        </span>
+                                    </a>
+                                    <span></span>
                                     <a th:href="@{#}">
                                         <span class="icon text-info">
                                             <i class="fa fa-edit"></i>
@@ -125,12 +148,21 @@
                                     </a>
                                 </td>
                             </tr>
+                            </tr>
                             <tr>
-                                <td><img th:src="@{#}" alt="Regular" /></td>
-                                <td>Regular</td>
-                                <td>Monthly</td>
-                                <td>1000</td>
+                                <td>Cedric Kelly</td>
+                                <td>Senior Javascript Developer</td>
+                                <td>Edinburgh</td>
+                                <td>22</td>
+                                <td></td>
+                                <td></td>
                                 <td>
+                                    <a th:href="@{#}">
+                                        <span class="icon text-primary">
+                                            <i class="fa fa-eye"></i>
+                                        </span>
+                                    </a>
+                                    <span></span>
                                     <a th:href="@{#}">
                                         <span class="icon text-info">
                                             <i class="fa fa-edit"></i>
@@ -143,6 +175,7 @@
                                         </span>
                                     </a>
                                 </td>
+                            </tr>
                             </tr>
                             </tbody>
                         </table>
@@ -160,6 +193,5 @@
 
 </div>
 <!-- End of Page Wrapper -->
-
 </body>
 </html>
