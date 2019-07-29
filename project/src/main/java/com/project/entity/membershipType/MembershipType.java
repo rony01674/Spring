@@ -23,7 +23,7 @@ public class MembershipType {
     @NotEmpty(message = "Enter amount")
     private double membershipAmount;
 
-    @NotEmpty(message = "Select your workout time")
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "membership_type_class_time",

@@ -4,7 +4,7 @@ import com.project.entity.memberManagement.GymMembers;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.util.Set;
+
 
 @Entity
 public class BodyMeasurement {
@@ -34,9 +34,9 @@ public class BodyMeasurement {
     @NotEmpty(message = "Enter your fat percentage ")
     private String fat;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "gym_member_id")
-    private Set<GymMembers> gymMembers;
+    private GymMembers gymMember;
 
     public BodyMeasurement() {
     }
@@ -105,11 +105,11 @@ public class BodyMeasurement {
         this.fat = fat;
     }
 
-    public Set<GymMembers> getGymMembers() {
-        return gymMembers;
+    public GymMembers getGymMember() {
+        return gymMember;
     }
 
-    public void setGymMembers(Set<GymMembers> gymMembers) {
-        this.gymMembers = gymMembers;
+    public void setGymMember(GymMembers gymMember) {
+        this.gymMember = gymMember;
     }
 }

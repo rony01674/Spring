@@ -1,7 +1,7 @@
 package com.project.entity.memberManagement;
 
 import com.project.entity.ClassTime;
-import com.project.entity.Role;
+import com.project.entity.User;
 import com.project.entity.membershipType.MembershipType;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -82,14 +82,10 @@ public class GymMembers {
     @NotEmpty(message = "Select Image")
     private String imagePath;
 
-    @NotEmpty(message = "Select a role")
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "gym_member_role",
-            joinColumns = @JoinColumn(name = "gym_member_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private Set<Role> roles;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @NotEmpty(message = "Select members goal")
     private String membersGoal;
@@ -107,15 +103,15 @@ public class GymMembers {
     @NotEmpty(message = "Select member type")
     private String memberType;
 
-    @NotEmpty(message = "Select membership ype")
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "membership_type_id")
-    private Set<MembershipType> membershipTypes;
+    private MembershipType membershipType;
 
-    @NotEmpty(message = "Select gym time")
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "class_id")
-    private Set<ClassTime> classTimes;
+    private ClassTime classTimes;
 
     @NotEmpty(message = "Select joining date")
     @Temporal(TemporalType.DATE)
@@ -241,6 +237,22 @@ public class GymMembers {
         return waist;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
     public void setWaist(int waist) {
         this.waist = waist;
     }
@@ -293,13 +305,6 @@ public class GymMembers {
         this.imagePath = imagePath;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
 
     public String getMembersGoal() {
         return membersGoal;
@@ -333,19 +338,19 @@ public class GymMembers {
         this.memberType = memberType;
     }
 
-    public Set<MembershipType> getMembershipTypes() {
-        return membershipTypes;
+    public MembershipType getMembershipType() {
+        return membershipType;
     }
 
-    public void setMembershipTypes(Set<MembershipType> membershipTypes) {
-        this.membershipTypes = membershipTypes;
+    public void setMembershipType(MembershipType membershipType) {
+        this.membershipType = membershipType;
     }
 
-    public Set<ClassTime> getClassTimes() {
+    public ClassTime getClassTimes() {
         return classTimes;
     }
 
-    public void setClassTimes(Set<ClassTime> classTimes) {
+    public void setClassTimes(ClassTime classTimes) {
         this.classTimes = classTimes;
     }
 

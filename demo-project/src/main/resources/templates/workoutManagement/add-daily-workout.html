@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>CrossFit | Membership Add</title>
+    <title>CrossFit | Add Daily Workout</title>
 </head>
 <body>
 <!-- body area -->
@@ -29,17 +29,18 @@
                     <div class="col-lg-4">
                         <h1 class="h3 mb-4 text-gray-800">
                             <span class="icon">
-                                <i class="fa fa-users"></i>
+                                <i class="fa fa-plus"></i>
                             </span>
-                        Add Membership</h1>
+                            Add Workout
+                        </h1>
                     </div>
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4">
-                        <a th:href="@{/membership-list}" class="btn btn-primary btn-icon-split float-right">
+                        <a th:href="@{/body-measurement-list}" class="btn btn-primary btn-icon-split float-right">
                             <span class="icon text-white-50">
                                 <i class="fas fa-th-list"></i>
                             </span>
-                            <span class="text">Membership List</span>
+                            <span class="text">Workout List</span>
                         </a>
                     </div>
                 </div>
@@ -50,62 +51,54 @@
                 <!-- for adding membershipType type -->
                 <form>
                     <div class="row">
-                        <div class="col-lg-4">
-                            <label class="float-right">Membership Name</label>
+                        <div class="col-lg-3">
+                            <label class="float-right">Select Member</label>
                         </div>
-                        <div class="col-lg-5 form-group">
-                            <input class="form-control" type="text"/>
-                        </div>
-                    </div>
-                    <br/>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <label class="float-right">Membership Period</label>
-                        </div>
-                        <div class="col-lg-5 form-group">
-                            <input  class="form-control" type="text"/>
-                        </div>
-                    </div>
-                    <br/>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <label class="float-right">Membership Amount</label>
-                        </div>
-                        <div class="col-lg-5 form-group">
-                            <input class="form-control" type="text"/>
-                        </div>
-                    </div>
-                    <br/>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <label class="float-right">Select Class</label>
-                        </div>
-                        <div class="col-lg-5 form-group">
+                        <div class="col-lg-7 form-group">
                             <select class="form-control">
-                                <option>Select Class Time</option>
-                                <option>Morning</option>
-                                <option>Evening</option>
+                                <option>Select Member</option>
+                                <option>Asaduzzaman Rony</option>
+                                <option>Saidur Rahman Sajib</option>
+                                <option>Ali Azom Dipu</option>
+                                <option>Ridoy Bhuiya</option>
                             </select>
                         </div>
                     </div>
                     <br/>
                     <div class="row">
-                        <div class="col-lg-4">
-                            <label class="float-right">Register Fee</label>
+                        <div class="col-lg-3">
+                            <label class="float-right">Select Date</label>
                         </div>
-                        <div class="col-lg-5 form-group">
+                        <div class="col-lg-7 form-group">
+                            <select class="form-control">
+                                <option>Select Result Measurement</option>
+                                <option>Weight</option>
+                                <option>Chest</option>
+                                <option>Waist</option>
+                                <option>Thigh</option>
+                                <option>Arms</option>
+                                <option>Fat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label class="float-right">Workout</label>
+                        </div>
+                        <div class="col-lg-7 form-group">
                             <input class="form-control" type="text"/>
                         </div>
                     </div>
-
                     <br/>
+
                     <div class="row">
                         <div class="col-md-7">
-                            <button class="btn btn-success float-right">
+                            <button class="btn btn-primary float-right">
                                 <span class="icon text-white-50">
                                     <i class="fa fa-plus"></i>
                                 </span>
-                                Save Membership
+                                Save
                             </button>
                         </div>
                     </div>
