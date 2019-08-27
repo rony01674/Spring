@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout.html}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CrossFit | Add Daily Nutrition</title>
+</head>
+<body>
+<!-- body area -->
+<div layout:fragment="custom-content" id="wrapper">
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <br/>
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h1 class="h3 mb-4 text-gray-800">
+                            <span class="icon">
+                                <i class="fa fa-plus"></i>
+                            </span>
+                            Add Nutrition
+                        </h1>
+                    </div>
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                        <a th:href="@{/nutrition-list}" class="btn btn-primary btn-icon-split float-right">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-th-list"></i>
+                            </span>
+                            <span class="text">Nutrition List</span>
+                        </a>
+                    </div>
+                </div>
+
+                <hr/>
+                <br/>
+
+                <!-- for adding membershipType type -->
+                <form>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label class="float-right">Select Member</label>
+                        </div>
+                        <div class="col-lg-5 input-group">
+                            <select class="form-control">
+                                <option>Select Member</option>
+                                <option>Asaduzzaman Rony</option>
+                                <option>Saidur Rahman Sajib</option>
+                                <option>Ali Azom Dipu</option>
+                                <option>Ridoy Bhuiya</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label class="float-right">Description</label>
+                        </div>
+                        <div class="col-lg-5 input-group">
+                            <textarea class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label class="float-right">Start Date</label>
+                        </div>
+                        <div class="col-lg-5 input-group">
+                            <input class="form-control" type="date"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <label class="float-right">End Date</label>
+                        </div>
+                        <div class="col-lg-5 input-group">
+                            <input class="form-control" type="date"/>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10 border">
+                            <br/>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <h6 style="background: #c9c2c1; text-align: center; color: black; height: 40px; padding-top: 11px">Select
+                                        days
+                                    </h6>
+
+                                </div>
+                                <div class="col-lg-10">
+                                    <h6 style="background: #c9c2c1; text-align: center; color: black; height: 40px; padding-top: 11px">
+                                        Select Workout Activity to Add On Selected Days
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <!-- Days Starts From Here -->
+
+                                <div class="col-lg-2">
+
+                                    <label for="Saturday" style="font-size: 15px">
+                                        <input type="checkbox" id="Saturday"/>
+                                        Saturday
+                                    </label>
+                                    <br/>
+
+                                    <label for="Sunday" style="font-size: 15px">
+                                        <input type="checkbox" id="Sunday"/>
+                                        Sunday
+                                    </label>
+                                    <br/>
+                                    <label for="Monday" style="font-size: 15px">
+                                        <input type="checkbox" id="Monday"/>
+                                        Monday
+                                    </label>
+                                    <br/>
+                                    <label for="Tuesday" style="font-size: 15px">
+                                        <input type="checkbox" id="Tuesday"/>
+                                        Tuesday
+                                    </label>
+                                    <br/>
+                                    <label for="Wednesday" style="font-size: 15px">
+                                        <input type="checkbox" id="Wednesday"/>
+                                        Wednesday
+                                    </label>
+                                    <br/>
+                                    <label for="Thursday" style="font-size: 15px">
+                                        <input type="checkbox" id="Thursday"/>
+                                        Thursday
+                                    </label>
+                                    <br/>
+                                    <label for="Friday" style="font-size: 15px">
+                                        <input type="checkbox" id="Friday"/>
+                                        Friday
+                                    </label>
+                                </div>
+
+                                <!-- Days Ends Here -->
+
+                                <!-- Workout List Starts Here -->
+
+                                <div class="col-lg-10" th:width="auto" style="height: 500px; overflow: auto">
+
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <h6 style="color: black"><strong>Food</strong></h6>
+                                        </div>
+                                        <div class="col-lg-3 d-flex justify-content-center">
+                                            <h6 style="color: black"><strong>Enter Session</strong></h6>
+                                        </div>
+                                        <div class="col-lg-2 d-flex justify-content-center">
+                                            <h6 style="color: black"><strong>Enter Count</strong></h6>
+                                        </div>
+
+                                    </div>
+                                    <hr/>
+
+                                    <!-- Nutrition Items Starts Here -->
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Apple</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Oats</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Low Fat Yogurt</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Cranberry Juice</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Mushrooms</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Almonds</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Watermelon</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Green Tea</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Coffee</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Oatmeal</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Barries</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Nuts</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Green Veggies</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Skinless Chicken</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Cottage Cheese</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Low Fat Milk</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Lean Beef</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Eggs</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Avocados</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Spinach</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Bananas</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Mangoes</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-2">
+                                            <label style="font-size: 13px"><strong>Fishes</strong></label>
+                                        </div>
+                                        <div class="col-lg-3 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                        <div class="col-lg-2 form-group">
+                                            <input type="text" class="form-control"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Workout List Ends Here -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+
+
+                    <div class="row">
+                        <div class="col-md-7">
+                            <button class="btn btn-primary float-right">
+                                <span class="icon text-white-50">
+                                    <i class="fa fa-plus"></i>
+                                </span>
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                    <br/>
+                </form>
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+</div>
+</body>
+</html>

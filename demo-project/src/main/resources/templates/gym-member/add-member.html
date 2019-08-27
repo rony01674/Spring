@@ -82,9 +82,9 @@
                             <label class="float-right">Gender</label>
                         </div>
                         <div class="col-lg-7 form-group">
-                            <input type="radio" name="male" th:value="Male"/>
+                            <input type="radio" name="gender" th:value="Male"/>
                             <label>Male</label>
-                            <input type="radio" name="male" th:value="Male"/>
+                            <input type="radio" name="gender" th:value="Male"/>
                             <label>Female</label>
                         </div>
                     </div>
@@ -235,7 +235,7 @@
                             <label class="float-right">Profile Picture</label>
                         </div>
                         <div class="col-lg-7 form-group">
-                            <input class="input-group" type="file"/>
+                            <input class="form-control-file" type="file"/>
                         </div>
                     </div>
 
@@ -248,6 +248,20 @@
                         <div class="col-lg-7 form-group">
                             <select class="form-control">
                                 <option>Select Member's Goal</option>
+                                <option>Weight Gain</option>
+                                <option>Weight Loss</option>
+                                <option>Fitness</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <label class="float-right">Referred By</label>
+                        </div>
+                        <div class="col-lg-7 form-group">
+                            <select class="form-control">
+                                <option>Select Staff Member</option>
                                 <option>Weight Gain</option>
                                 <option>Weight Loss</option>
                                 <option>Fitness</option>
@@ -278,11 +292,11 @@
                             <label class="float-right">Member Type</label>
                         </div>
                         <div class="col-lg-7 form-group">
-                            <input type="radio"/>
+                            <input name="memberType" type="radio"/>
                             <label>Member</label>
-                            <input type="radio"/>
+                            <input name="memberType" type="radio"/>
                             <label>Prospect</label>
-                            <input type="radio"/>
+                            <input name="memberType" type="radio"/>
                             <label>Alumni</label>
                         </div>
                     </div>

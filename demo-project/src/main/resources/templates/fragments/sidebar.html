@@ -10,9 +10,9 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/}">
-                    <div class="sidebar-brand-icon rotate-n-15">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-dumbbell"></i>
+        </div>
         <div class="sidebar-brand-text mx-3">CrossFit Gym</div>
     </a>
 
@@ -56,79 +56,74 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#workout"
            aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-running"></i>
             <span>Workout Schedule</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+        <div id="workout" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" th:href="@{/add-body-measurement}">Add Measurement</a>
                 <a class="collapse-item" th:href="@{/workout-list}">Workout List</a>
                 <a class="collapse-item" th:href="@{/add-workout}">Daily Workout</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#nutrition"
            aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-running"></i>
             <span>Nutrition Schedule</span>
         </a>
-        <div id="collapseUtil" class="collapse" aria-labelledby="headingUtilities"
+        <div id="nutrition" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" th:href="@{#}">Add Measurement</a>
+                <a class="collapse-item" th:href="@{/add-nutrition}">Add Daily Nutrition</a>
                 <a class="collapse-item" th:href="@{#}">Workout List</a>
                 <a class="collapse-item" th:href="@{#}">Daily Workout</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#attendance"
            aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-calendar-alt"></i>
             <span>Attendance</span>
         </a>
-        <div class="collapse" aria-labelledby="headingUtilities"
+        <div id="attendance" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" th:href="@{#}">Add Measurement</a>
-                <a class="collapse-item" th:href="@{#}">Workout List</a>
-                <a class="collapse-item" th:href="@{#}">Daily Workout</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
+                <a class="collapse-item" th:href="@{/add-class-time}">Add/View Class</a>
+                <a class="collapse-item" th:href="@{/attendance}">Add/View Attendance</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#payment"
            aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-money-bill-alt"></i>
             <span>Payment</span>
         </a>
-        <div class="collapse" aria-labelledby="headingUtilities"
+        <div id="payment" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" th:href="@{#}">Add Measurement</a>
-                <a class="collapse-item" th:href="@{#}">Workout List</a>
-                <a class="collapse-item" th:href="@{#}">Daily Workout</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
+                <a class="collapse-item" th:href="@{/payment-list}">Membership Payment</a>
+                <a class="collapse-item" th:href="@{#}">Income</a>
+                <a class="collapse-item" th:href="@{#}">Expenses</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" th:href="@{/compose-message}">
             <i class="fas fa-fw fa-comment-dots"></i>
             <span>Message</span></a>
     </li>
