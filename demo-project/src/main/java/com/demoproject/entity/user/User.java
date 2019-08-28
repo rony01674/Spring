@@ -1,5 +1,6 @@
-package com.demoproject.entity;
+package com.demoproject.entity.user;
 
+import com.demoproject.entity.Role;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;

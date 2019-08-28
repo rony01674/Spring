@@ -51,85 +51,28 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
-                                <th>Photo</th>
                                 <th>Membership Name</th>
                                 <th>Membership Period</th>
+                                <th>Total Amount</th>
                                 <th>Register Fee</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>Photo</th>
                                 <th>Membership Name</th>
                                 <th>Membership Period</th>
+                                <td>Total Amount</td>
                                 <th>Register Fee</th>
                                 <th>Action</th>
                             </tr>
                             </tfoot>
                             <tbody>
-                            <tr>
-                                <td><img th:src="@{/images/Gold-Membership.png}" width="40px" height="40px"/></td>
-                                <td>Gold</td>
-                                <td>5 years</td>
-                                <td>45000</td>
-                                <td>
-                                    <a th:href="@{#}">
-                                        <span class="icon text-info">
-                                            <i class="fa fa-edit"></i>
-                                        </span>
-                                    </a>
-                                    <span></span>
-                                    <a th:href="@{#}">
-                                        <span class="icon text-danger">
-                                            <i class="fa fa-trash-alt"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><img th:src="@{/images/Gold-Membership.png}" width="40px" height="40px"/></td>
-                                <td>Platinum</td>
-                                <td>2 years</td>
-                                <td>20000</td>
-                                <td>
-                                    <a th:href="@{#}">
-                                        <span class="icon text-info">
-                                            <i class="fa fa-edit"></i>
-                                        </span>
-                                    </a>
-                                    <span></span>
-                                    <a th:href="@{#}">
-                                        <span class="icon text-danger">
-                                            <i class="fa fa-trash-alt"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><img th:src="@{/images/Gold-Membership.png}" width="40px" height="40px"/></td>
-                                <td>Silver</td>
-                                <td>1 year</td>
-                                <td>10000</td>
-                                <td>
-                                    <a th:href="@{#}">
-                                        <span class="icon text-info">
-                                            <i class="fa fa-edit"></i>
-                                        </span>
-                                    </a>
-                                    <span></span>
-                                    <a th:href="@{#}">
-                                        <span class="icon text-danger">
-                                            <i class="fa fa-trash-alt"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><img th:src="@{/images/Gold-Membership.png}" width="40px" height="40px"/></td>
-                                <td>Regular</td>
-                                <td>Monthly</td>
-                                <td>1000</td>
+                            <tr th:each="mlist : ${membershipList}">
+                                <td th:text="*{mlist.membershipName}"></td>
+                                <td th:text="*{mlist.membershipDays}"></td>
+                                <td th:text="*{mlist.membershipAmount}"></td>
+                                <td th:text="*{mlist.regFee}"></td>
                                 <td>
                                     <a th:href="@{#}">
                                         <span class="icon text-info">

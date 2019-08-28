@@ -48,13 +48,13 @@
                 <br/>
 
                 <!-- for adding membershipType type -->
-                <form>
+                <form th:object="${membershipType}" th:action="@{/membership-add}" th:method="POST">
                     <div class="row">
                         <div class="col-lg-4">
                             <label class="float-right">Membership Name</label>
                         </div>
                         <div class="col-lg-5 input-group">
-                            <input class="form-control" type="text"/>
+                            <input class="form-control" type="text" th:field="*{membershipName}"/>
                         </div>
                     </div>
                     <br/>
@@ -66,7 +66,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">No. of Days</div>
                             </div>
-                            <input  class="form-control" type="text"/>
+                            <input  class="form-control" type="text" th:field="*{membershipDays}"/>
                         </div>
                     </div>
                     <br/>
@@ -78,7 +78,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Tk</div>
                             </div>
-                            <input class="form-control" type="text"/>
+                            <input class="form-control" type="text" th:field="*{membershipAmount}"/>
                         </div>
                     </div>
                     <br/>
@@ -87,10 +87,8 @@
                             <label class="float-right">Select Class</label>
                         </div>
                         <div class="col-lg-5 input-group">
-                            <select class="form-control">
-                                <option>Select Class Time</option>
-                                <option>Morning</option>
-                                <option>Evening</option>
+                            <select class="form-control" th:field="*{classTime}">
+                                <option th:each="clist : ${classList}" th:value="${clist.classId}"><span th:text="${clist.className}"></span></option>
                             </select>
                         </div>
                     </div>
@@ -103,18 +101,18 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Tk</div>
                             </div>
-                            <input class="form-control" type="text"/>
+                            <input class="form-control" type="text" th:field="*{regFee}"/>
                         </div>
                     </div>
                     <br/>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <label class="float-right">Membership Image</label>
-                        </div>
-                        <div class="col-lg-5 input-group">
-                            <input type="file"/>
-                        </div>
-                    </div>
+<!--                    <div class="row">-->
+<!--                        <div class="col-lg-4">-->
+<!--                            <label class="float-right">Membership Image</label>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-5 input-group">-->
+<!--                            <input type="file" th:field="*{filePath}"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
                     <br/>
                     <div class="row">
