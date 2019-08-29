@@ -1,12 +1,11 @@
 package com.demoproject.entity.mebershipTypeManagement;
 
-import com.demoproject.entity.attendanceManagement.ClassEntity;
+import com.demoproject.entity.attendanceManagement.ClassSchedule;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class MembershipTypeEntity {
+public class MembershipType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +17,9 @@ public class MembershipTypeEntity {
     private String membershipDays;
     private double membershipAmount;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "class_id", referencedColumnName = "class_id")
-    private ClassEntity classTime;
+    private ClassSchedule classTime;
     private double regFee;
 
 //    //For image upload
@@ -31,7 +30,7 @@ public class MembershipTypeEntity {
 //    private String filePath;
 //    private String fileExtension;
 
-    public MembershipTypeEntity() {
+    public MembershipType() {
     }
 
     public Long getMembershipTypeId() {
@@ -66,11 +65,11 @@ public class MembershipTypeEntity {
         this.membershipAmount = membershipAmount;
     }
 
-    public ClassEntity getClassTime() {
+    public ClassSchedule getClassTime() {
         return classTime;
     }
 
-    public void setClassTime(ClassEntity classTime) {
+    public void setClassTime(ClassSchedule classTime) {
         this.classTime = classTime;
     }
 

@@ -6,14 +6,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class MemberGoalEntity {
+public class MembersGoal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String goalName;
 
-    public MemberGoalEntity() {
+    public MembersGoal() {
     }
 
     public Long getId() {

@@ -1,4 +1,4 @@
 package com.demoproject.entity.workoutManagement;
 
-public class WorkoutEntity {
+public class Workout {
 }

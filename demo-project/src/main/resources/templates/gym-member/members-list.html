@@ -64,21 +64,21 @@
                             <tr>
                                 <th>Photo</th>
                                 <th>Member Name</th>
+                                <th>Mobile No</th>
                                 <th>Joining Date</th>
                                 <th>Expire Date</th>
                                 <th>Member Type</th>
-                                <th>Membership Status</th>
                                 <th>Action</th>
                             </tr>
                             </tfoot>
                             <tbody>
-                            <tr>
+                            <tr th:each="mList : ${list}">
                                 <td><img th:src="@{/images/rony.jpg}" width="40px" height="40px"/> </td>
-                                <td>Asaduzzaman Rony</td>
-                                <td>01-01-2019</td>
-                                <td>31-12-2019</td>
-                                <td>Member</td>
-                                <td>Active</td>
+                                <td th:text="${mList.mName}"></td>
+                                <td th:text="${mList.mMobileNo}"></td>
+                                <td th:text="${mList.mStartDate}"></td>
+                                <td th:text="${mList.mEndDate}"></td>
+                                <td th:text="${mList.mType}"></td>
                                 <td>
                                     <a th:href="@{/member-profile}">
                                         <span class="icon text-primary">
@@ -98,90 +98,6 @@
                                         </span>
                                     </a>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td><img th:src="@{/images/rony.jpg}" width="40px" height="40px"/> </td>
-                                <td>Asaduzzaman Rony</td>
-                                <td>01-01-2019</td>
-                                <td>31-12-2019</td>
-                                <td>Member</td>
-                                <td>Active</td>
-                                <td>
-                                    <a th:href="@{/member-profile}">
-                                        <span class="icon text-primary">
-                                            <i class="fa fa-eye"></i>
-                                        </span>
-                                    </a>
-                                    <span></span>
-                                    <a th:href="@{#}">
-                                        <span class="icon text-info">
-                                            <i class="fa fa-edit"></i>
-                                        </span>
-                                    </a>
-                                    <span></span>
-                                    <a th:href="@{#}">
-                                        <span class="icon text-danger">
-                                            <i class="fa fa-trash-alt"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
-                            </tr>
-                            <tr>
-                                <td><img th:src="@{/images/rony.jpg}" width="40px" height="40px"/> </td>
-                                <td>Asaduzzaman Rony</td>
-                                <td>01-01-2019</td>
-                                <td>31-12-2019</td>
-                                <td>Member</td>
-                                <td>Active</td>
-                                <td>
-                                    <a th:href="@{/member-profile}">
-                                        <span class="icon text-primary">
-                                            <i class="fa fa-eye"></i>
-                                        </span>
-                                    </a>
-                                    <span></span>
-                                    <a th:href="@{#}">
-                                        <span class="icon text-info">
-                                            <i class="fa fa-edit"></i>
-                                        </span>
-                                    </a>
-                                    <span></span>
-                                    <a th:href="@{#}">
-                                        <span class="icon text-danger">
-                                            <i class="fa fa-trash-alt"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
-                            </tr>
-                            <tr>
-                                <td><img th:src="@{/images/rony.jpg}" width="40px" height="40px"/> </td>
-                                <td>Asaduzzaman Rony</td>
-                                <td>01-01-2019</td>
-                                <td>31-12-2019</td>
-                                <td>Member</td>
-                                <td>Active</td>
-                                <td>
-                                    <a th:href="@{/member-profile}">
-                                        <span class="icon text-primary">
-                                            <i class="fa fa-eye"></i>
-                                        </span>
-                                    </a>
-                                    <span></span>
-                                    <a th:href="@{#}">
-                                        <span class="icon text-info">
-                                            <i class="fa fa-edit"></i>
-                                        </span>
-                                    </a>
-                                    <span></span>
-                                    <a th:href="@{#}">
-                                        <span class="icon text-danger">
-                                            <i class="fa fa-trash-alt"></i>
-                                        </span>
-                                    </a>
-                                </td>
-                            </tr>
                             </tr>
                             </tbody>
                         </table>

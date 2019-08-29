@@ -1,8 +1,8 @@
 package com.demoproject.entity.memberManagement;
 
-import com.demoproject.entity.mebershipTypeManagement.MemberGoalEntity;
-import com.demoproject.entity.attendanceManagement.ClassEntity;
-import com.demoproject.entity.mebershipTypeManagement.MembershipTypeEntity;
+import com.demoproject.entity.mebershipTypeManagement.MembersGoal;
+import com.demoproject.entity.attendanceManagement.ClassSchedule;
+import com.demoproject.entity.mebershipTypeManagement.MembershipType;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "members")
-public class MemberEntity {
+public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class MemberEntity {
     @NotEmpty
     private String mGender;
     @NotEmpty
-    private Date mBirthday;
+    private String mBirthday;
     @NotEmpty
     private String mAddress;
     @NotEmpty
@@ -57,29 +57,27 @@ public class MemberEntity {
     private String filePath;
     private String fileExtension;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "members_goal_id", referencedColumnName = "id")
-    private MemberGoalEntity mGoal;
+    private MembersGoal mGoal;
     private String mType;
 
-    @NotEmpty
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "m_type_id", referencedColumnName = "membership_type_id")
-    private MembershipTypeEntity membershipType;
+    private MembershipType membershipType;
 
-    @NotEmpty
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "class_time_id", referencedColumnName = "class_id")
-    private ClassEntity classTime;
+    private ClassSchedule classTime;
     @NotEmpty
-    private Date mStartDate;
+    private String mStartDate;
     @NotEmpty
-    private Date mEndDate;
+    private String mEndDate;
     @NotEmpty
-    private Date mFirstPayment;
+    private String mFirstPayment;
 
 
-    public MemberEntity() {
+    public Member() {
     }
 
     public Long getmId() {
@@ -114,11 +112,11 @@ public class MemberEntity {
         this.mGender = mGender;
     }
 
-    public Date getmBirthday() {
+    public String getmBirthday() {
         return mBirthday;
     }
 
-    public void setmBirthday(Date mBirthday) {
+    public void setmBirthday(String mBirthday) {
         this.mBirthday = mBirthday;
     }
 
@@ -274,11 +272,11 @@ public class MemberEntity {
         this.fileExtension = fileExtension;
     }
 
-    public MemberGoalEntity getmGoal() {
+    public MembersGoal getmGoal() {
         return mGoal;
     }
 
-    public void setmGoal(MemberGoalEntity mGoal) {
+    public void setmGoal(MembersGoal mGoal) {
         this.mGoal = mGoal;
     }
 
@@ -290,43 +288,43 @@ public class MemberEntity {
         this.mType = mType;
     }
 
-    public MembershipTypeEntity getMembershipType() {
+    public MembershipType getMembershipType() {
         return membershipType;
     }
 
-    public void setMembershipType(MembershipTypeEntity membershipType) {
+    public void setMembershipType(MembershipType membershipType) {
         this.membershipType = membershipType;
     }
 
-    public ClassEntity getClassTime() {
+    public ClassSchedule getClassTime() {
         return classTime;
     }
 
-    public void setClassTime(ClassEntity classTime) {
+    public void setClassTime(ClassSchedule classTime) {
         this.classTime = classTime;
     }
 
-    public Date getmStartDate() {
+    public String getmStartDate() {
         return mStartDate;
     }
 
-    public void setmStartDate(Date mStartDate) {
+    public void setmStartDate(String mStartDate) {
         this.mStartDate = mStartDate;
     }
 
-    public Date getmEndDate() {
+    public String getmEndDate() {
         return mEndDate;
     }
 
-    public void setmEndDate(Date mEndDate) {
+    public void setmEndDate(String mEndDate) {
         this.mEndDate = mEndDate;
     }
 
-    public Date getmFirstPayment() {
+    public String getmFirstPayment() {
         return mFirstPayment;
     }
 
-    public void setmFirstPayment(Date mFirstPayment) {
+    public void setmFirstPayment(String mFirstPayment) {
         this.mFirstPayment = mFirstPayment;
     }
 }

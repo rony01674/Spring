@@ -47,7 +47,7 @@
                 <hr/>
 
                 <br/>
-                <form th:object="${members}" th:action="@{/add-member}" th:method="POST">
+                <form th:object="${members}" th:action="@{/add-member}" th:method="POST" enctype="multipart/form-data">
                     <h3>Personal Information</h3>
                     <hr/>
                     <div class="row">
@@ -235,7 +235,7 @@
                             <label class="float-right">Profile Picture</label>
                         </div>
                         <div class="col-lg-7 form-group">
-                            <input class="form-control-file" type="file" th:field="*{filePath}"/>
+                            <input class="form-control-file" type="file" name="file"/>
                         </div>
                     </div>
 

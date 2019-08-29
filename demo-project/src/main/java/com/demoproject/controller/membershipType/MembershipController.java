@@ -1,7 +1,7 @@
 package com.demoproject.controller.membershipType;
 
-import com.demoproject.entity.mebershipTypeManagement.MembershipTypeEntity;
-import com.demoproject.repository.attendanceManagement.ClassRepo;
+import com.demoproject.entity.mebershipTypeManagement.MembershipType;
+import com.demoproject.repository.attendanceManagement.ClassScheduleRepo;
 import com.demoproject.repository.membershipTypeManagement.MembershipTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ public class MembershipController {
     private MembershipTypeRepo repo;
 
     @Autowired
-    private ClassRepo classRepo;
+    private ClassScheduleRepo classRepo;
 
 
     // This method is used for showing membership list
@@ -34,19 +34,19 @@ public class MembershipController {
     @GetMapping(value = "/membership-add")
     public String membershipAdd(Model model) {
 
-        model.addAttribute("membershipType", new MembershipTypeEntity());
+        model.addAttribute("membershipType", new MembershipType());
         model.addAttribute("classList", this.classRepo.findAll());
         return "membership/add";
     }
 
     @PostMapping(value = "/membership-add")
-    public String saveMembership(Model model, @Valid MembershipTypeEntity membershipType, BindingResult result) {
+    public String saveMembership(Model model, @Valid MembershipType membershipType, BindingResult result) {
 
         if (result.hasErrors()) {
             model.addAttribute("errMsg", "Please Enter Valid Data");
         } else {
             this.repo.save(membershipType);
-            model.addAttribute("membershipType", new MembershipTypeEntity());
+            model.addAttribute("membershipType", new MembershipType());
             model.addAttribute("successMge", "Membership Inserted Successful");
             // model.addAttribute("list",this.repo.findAll());
             model.addAttribute("classList", this.classRepo.findAll());

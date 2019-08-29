@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class ClassEntity {
+public class ClassSchedule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class ClassEntity {
     @Column(unique = true)
     private String classTime;
 
-    public ClassEntity() {
+    public ClassSchedule() {
     }
 
     public Long getClassId() {

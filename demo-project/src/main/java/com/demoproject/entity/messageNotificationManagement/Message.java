@@ -1,4 +1,4 @@
 package com.demoproject.entity.messageNotificationManagement;
 
-public class MessageEntity {
+public class Message {
 }

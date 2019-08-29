@@ -1,7 +1,7 @@
 package com.demoproject.controller.attendanceManagement;
 
-import com.demoproject.entity.attendanceManagement.ClassEntity;
-import com.demoproject.repository.attendanceManagement.ClassRepo;
+import com.demoproject.entity.attendanceManagement.ClassSchedule;
+import com.demoproject.repository.attendanceManagement.ClassScheduleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ import javax.validation.Valid;
 public class AttendanceController {
 
     @Autowired
-    private ClassRepo repo;
+    private ClassScheduleRepo repo;
 
     @GetMapping(value = "/attendance")
     public String showAttendance() {
@@ -25,16 +25,16 @@ public class AttendanceController {
     @GetMapping(value = "/add-class-time")
     public String addClass(Model model) {
 
-        model.addAttribute("classTime", new ClassEntity());
+        model.addAttribute("classTime", new ClassSchedule());
 //        model.addAttribute("list", this.repo.findAll());
         return "attendance-management/add-class";
     }
 
     @PostMapping(value = "/add-class-time")
-    public String saveClass(Model model, @Valid ClassEntity classTime){
+    public String saveClass(Model model, @Valid ClassSchedule classTime){
 
         this.repo.save(classTime);
-        model.addAttribute("classTime", new ClassEntity());
+        model.addAttribute("classTime", new ClassSchedule());
         //model.addAttribute("successMsg","Class Time Saved");
         //model.addAttribute("list", repo.findAll());
         return "attendance-management/add-class";

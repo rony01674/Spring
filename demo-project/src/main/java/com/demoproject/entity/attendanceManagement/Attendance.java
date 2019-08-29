@@ -1,4 +1,4 @@
 package com.demoproject.entity.attendanceManagement;
 
-public class AttendanceEntity {
+public class Attendance {
 }
