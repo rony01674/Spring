@@ -53,7 +53,7 @@ public class Member {
     private long fileSize;
     private String fileName;
     @Lob
-    private byte[] file;
+    //private byte[] file;
     private String filePath;
     private String fileExtension;
 
@@ -248,13 +248,13 @@ public class Member {
         this.fileName = fileName;
     }
 
-    public byte[] getFile() {
-        return file;
-    }
-
-    public void setFile(byte[] file) {
-        this.file = file;
-    }
+//    public byte[] getFile() {
+//        return file;
+//    }
+//
+//    public void setFile(byte[] file) {
+//        this.file = file;
+//    }
 
     public String getFilePath() {
         return filePath;

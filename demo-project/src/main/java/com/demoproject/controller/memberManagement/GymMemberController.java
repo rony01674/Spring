@@ -9,7 +9,9 @@ import com.demoproject.util.ImageOptimizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -42,16 +44,6 @@ public class GymMemberController {
     @Autowired
     private ImageOptimizer imageOptimizer;
 
-    @GetMapping(value = "/members-list")
-    public String showGymMemberList(Model model) {
-
-        model.addAttribute("members", new Member());
-        model.addAttribute("list",this.repo.findAll());
-        model.addAttribute("goal", this.goalRepo.findAll());
-        model.addAttribute("msType", this.typeRepo.findAll());
-        model.addAttribute("classTime", this.classRepo.findAll());
-        return "gym-member/members-list";
-    }
 
     @GetMapping(value = "/add-member")
     public String addMember(Model model) {
@@ -92,6 +84,30 @@ public class GymMemberController {
         model.addAttribute("msType", this.typeRepo.findAll());
         model.addAttribute("classTime", this.classRepo.findAll());
         return "gym-member/add-member";
+    }
+
+
+    @GetMapping(value = "/members-list")
+    public String showGymMemberList(Model model) {
+
+        model.addAttribute("members", new Member());
+        model.addAttribute("list", this.repo.findAll());
+        model.addAttribute("goal", this.goalRepo.findAll());
+        model.addAttribute("msType", this.typeRepo.findAll());
+        model.addAttribute("classTime", this.classRepo.findAll());
+        return "gym-member/members-list";
+    }
+
+    @GetMapping(value = "/edit-member/{mId}")
+    public String editView(Model model, @PathVariable("mId") Long id) {
+        model.addAttribute("memberEdit", this.repo.getOne(id));
+        return "gym-member/edit-member";
+    }
+
+    @PostMapping("/edit-member/{mId}")
+    public String edit(@Valid Member member, @PathVariable("mId") Long id) {
+        this.repo.save(member);
+        return "redirect:/member-list";
     }
 
     @GetMapping(value = "/member-profile")
