@@ -73,7 +73,7 @@
                             </tfoot>
                             <tbody>
                             <tr th:each="mList : ${list}">
-                                <td><img th:src="@{/images/rony.jpg}" width="40px" height="40px"/> </td>
+                                <td><img th:src="@{${mList.getFilePath()}}" width="40px" height="40px"/> </td>
                                 <td th:text="${mList.mName}"></td>
                                 <td th:text="${mList.mMobileNo}"></td>
                                 <td th:text="${mList.mStartDate}"></td>

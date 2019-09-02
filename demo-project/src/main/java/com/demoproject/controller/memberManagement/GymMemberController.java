@@ -56,10 +56,9 @@ public class GymMemberController {
 
     @PostMapping(value = "/add-member")
     public String saveMember(@Valid Member members, @RequestParam("file") MultipartFile file,
-                             RedirectAttributes redirectAttributes, Model model) throws IOException {
-        if (file.isEmpty()) {
-            redirectAttributes.addFlashAttribute("message", "Please select your photo");
-            return "redirect:/add-member";
+                             RedirectAttributes redirectAttributes, BindingResult result, Model model) throws IOException {
+        if (result.hasErrors()) {
+            return "gym-member/add-member";
         }
         try {
 
@@ -68,9 +67,9 @@ public class GymMemberController {
             Files.write(path, bytes);
             ;
             Member member = new Member();
-            member.setFileName("new" + file.getOriginalFilename());
+            member.setFileName(file.getOriginalFilename());
             member.setFileSize(file.getSize());
-            member.setFilePath("images/" + "new" + file.getOriginalFilename());
+            member.setFilePath("images/" + file.getOriginalFilename());
             member.setFileExtension(file.getContentType());
             this.repo.save(members);
             redirectAttributes.addFlashAttribute("message", "You successfully uploaded" + file.getOriginalFilename() + "'");
@@ -83,7 +82,7 @@ public class GymMemberController {
         model.addAttribute("goal", this.goalRepo.findAll());
         model.addAttribute("msType", this.typeRepo.findAll());
         model.addAttribute("classTime", this.classRepo.findAll());
-        return "gym-member/add-member";
+        return "redirect:/members-list";
     }
 
 

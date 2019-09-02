@@ -43,11 +43,6 @@ public class Member {
     private int mThigh;
     private int mArms;
     private String mFat;
-    @NotEmpty
-    @Column(unique = true)
-    private String mUserName;
-    @NotEmpty
-    private String mPassword;
 
     //For image upload
     private long fileSize;
@@ -214,22 +209,6 @@ public class Member {
 
     public void setmFat(String mFat) {
         this.mFat = mFat;
-    }
-
-    public String getmUserName() {
-        return mUserName;
-    }
-
-    public void setmUserName(String mUserName) {
-        this.mUserName = mUserName;
-    }
-
-    public String getmPassword() {
-        return mPassword;
-    }
-
-    public void setmPassword(String mPassword) {
-        this.mPassword = mPassword;
     }
 
     public long getFileSize() {

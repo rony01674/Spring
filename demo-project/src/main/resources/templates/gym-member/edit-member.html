@@ -3,15 +3,10 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{fragments/layout.html}">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>CrossFit | Member List</title>
+    <meta charset="UTF-8">
+    <title>CrossFit | Member's Profile</title>
 </head>
 <body>
-
 <!-- body area -->
 <div layout:fragment="custom-content" id="wrapper">
 
@@ -30,7 +25,7 @@
                             <span class="icon">
                                 <i class="fa fa-user"></i>
                             </span>
-                            Add Member
+                            Member Profile
                         </h1>
                     </div>
                     <div class="col-lg-4"></div>
@@ -39,304 +34,117 @@
                             <span class="icon text-white-50">
                                 <i class="fas fa-th-list"></i>
                             </span>
-                            <span class="text">Members List</span>
+                            <span class="text">Member List</span>
                         </a>
                     </div>
                 </div>
 
                 <hr/>
-
                 <br/>
-                <form action="#" th:object="${memberEdit}" th:action="@{/edit-member/} + ${mId}" th:method="POST">
-                    <h3>Personal Information</h3>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Member Id</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="hidden" th:field="*{mId}"/>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Member Name</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" th:field="*{mName}"/>
-                        </div>
-                    </div>
+                <form action="#" th:action="@{/edit-member/} + ${mId}" th:object="${memberEdit}" method="POST">
 
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Father's Name</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" th:field="*{mFatherName}"/>
-                        </div>
-                    </div>
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Member Id</th>
+                            <th>Member Name</th>
+                            <th>Father's Name</th>
+                            <th>Gender</th>
+                            <th>Birthday</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Zip Code</th>
+                            <th>Mobile Number</th>
+                            <th>Email</th>
+                            <th>Weight</th>
+                            <th>Height</th>
+                            <th>Chest</th>
+                            <th>Waist</th>
+                            <th>Thigh</th>
+                            <th>Arms</th>
+                            <th>Fat %</th>
+                            <th>Members Goal</th>
+                            <th>Member Type</th>
+                            <th>Membership</th>
+                            <th>Class Time</th>
+                            <th>Joining Date</th>
+                            <th>Expire Date</th>
+                            <th>Membership Status</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Member Id</th>
+                            <th>Member Name</th>
+                            <th>Father's Name</th>
+                            <th>Gender</th>
+                            <th>Birthday</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Zip Code</th>
+                            <th>Mobile Number</th>
+                            <th>Email</th>
+                            <th>Weight</th>
+                            <th>Height</th>
+                            <th>Chest</th>
+                            <th>Waist</th>
+                            <th>Thigh</th>
+                            <th>Arms</th>
+                            <th>Fat %</th>
+                            <th>Members Goal</th>
+                            <th>Member Type</th>
+                            <th>Membership</th>
+                            <th>Class Time</th>
+                            <th>Joining Date</th>
+                            <th>Expire Date</th>
+                            <th>Membership Status</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </tbody>
+                    </table>
 
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Gender</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input type="radio" name="gender" th:value="Male" th:field="*{mGender}"/>
-                            <label>Male</label>
-                            <input type="radio" name="gender" th:value="Female" th:field="*{mGender}"/>
-                            <label>Female</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Date of birth</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="date" th:field="*{mBirthday}"/>
-                        </div>
-                    </div>
-
-                    <h4>Contact Information</h4>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Address</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" th:field="*{mAddress}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">City</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" th:field="*{mCity}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Zip Code</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" th:field="*{mZipCode}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Mobile Number</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" th:field="*{mMobileNo}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Email</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="email" th:field="*{mEmail}"/>
-                        </div>
-                    </div>
-
-                    <h4>Physical Information</h4>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Weight</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="KG" th:field="*{mWeight}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Height</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="Inches" th:field="*{mHeight}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Chest</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="Inches" th:field="*{mChest}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Waist</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="Inches" th:field="*{mWaist}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Thigh</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="Inches" th:field="*{mThigh}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Arms</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="Inches" th:field="*{mArms}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Fat</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" placeholder="Percentage" th:field="*{mFat}"/>
-                        </div>
-                    </div>
-
-                    <h4>Login Information</h4>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Username</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="text" th:field="*{mUserName}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Password</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="password" th:field="*{mPassword}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Profile Picture</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control-file" type="file" name="file"/>
-                        </div>
-                    </div>
-
-                    <h4>More Information</h4>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Member's Goal</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <select class="form-control" th:field="*{mGoal}">
-                                <option  th:each="gList : ${goal}" th:value="${gList.id}"><span th:text="${gList.goalName}"></span></option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Member Type</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input name="memberType" type="radio" th:value="Member" th:field="*{mType}"/>
-                            <label>Member</label>
-                            <input name="memberType" type="radio" th:value="Prospect" th:field="*{mType}"/>
-                            <label>Prospect</label>
-                            <input name="memberType" type="radio" th:value="Alumni" th:field="*{mType}"/>
-                            <label>Alumni</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Membership</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <select class="form-control" th:field="*{membershipType}">
-                                <option th:each="mShipList : ${msType}" th:value="${mShipList.membershipTypeId}"><span th:text="${mShipList.membershipName}"></span></option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Select Class</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <select class="form-control" th:field="*{classTime}">
-                                <option th:each="cList : ${classTime}" th:value="${cList.classId}"><span th:text="${cList.className}"></span></option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">Membership Valid From</label>
-                        </div>
-                        <div class="col-lg-2 form-group">
-                            <input class="form-control" type="date" th:field="*{mStartDate}"/>
-                        </div>
-                        <div class="col-lg-1 form-group">
-                            <label>To</label>
-                        </div>
-                        <div class="col-lg-2 form-group">
-                            <input class="form-control" type="date" th:field="*{mEndDate}"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <label class="float-right">First Payment Date</label>
-                        </div>
-                        <div class="col-lg-7 form-group">
-                            <input class="form-control" type="date" th:field="*{mFirstPayment}"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-2">
-                        </div>
-                        <div class="col-lg-4">
-                            <button class="btn btn-primary" type="submit">
-                                <span class="icon text-white-50">
-                                    <i class="fa fa-plus"></i>
-                                </span>
-                                Add Member
-                            </button>
-                        </div>
-                    </div>
                 </form>
 
                 <br/>
+                <!-- /.container-fluid -->
 
             </div>
-            <!-- /.container-fluid -->
+            <!-- End of Main Content -->
 
         </div>
-        <!-- End of Main Content -->
+        <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
-
 </div>
-<!-- End of Page Wrapper -->
 </body>
 </html>
