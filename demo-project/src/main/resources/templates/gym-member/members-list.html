@@ -72,21 +72,20 @@
                             </tr>
                             </tfoot>
                             <tbody>
-                            <tr th:each="mList : ${list}">
-                                <td><img th:src="@{${mList.getFilePath()}}" width="40px" height="40px"/> </td>
-                                <td th:text="${mList.mName}"></td>
-                                <td th:text="${mList.mMobileNo}"></td>
-                                <td th:text="${mList.mStartDate}"></td>
-                                <td th:text="${mList.mEndDate}"></td>
-                                <td th:text="${mList.mType}"></td>
+                            <tr th:each="m : ${mlist}">
+                                <td><img th:src="@{m.photo}" width="40px" height="40px"/> </td>
+                                <td th:text="${m.mName}"></td>
+                                <td th:text="${m.mMobileNo}"></td>
+                                <td th:text="${m.mStartDate}"></td>
+                                <td th:text="${m.mEndDate}"></td>
+                                <td th:text="${m.mType}"></td>
                                 <td>
                                     <a th:href="@{/member-profile}">
                                         <span class="icon text-primary">
                                             <i class="fa fa-eye"></i>
                                         </span>
                                     </a>
-                                    <span></span>
-                                    <a th:href="@{'/edit-member/' + ${mList.id}}">
+                                   <a th:href="@{'/edit-member/'+ ${m.id} }">
                                         <span class="icon text-info">
                                             <i class="fa fa-edit"></i>
                                         </span>

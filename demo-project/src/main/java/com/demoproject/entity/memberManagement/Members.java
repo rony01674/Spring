@@ -7,33 +7,24 @@ import com.demoproject.entity.mebershipTypeManagement.MembershipType;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
-@Table(name = "members")
-public class Member {
+public class Members {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty
     private String mName;
-    @NotEmpty
     private String mFatherName;
-    @NotEmpty
     private String mGender;
-    @NotEmpty
     private String mBirthday;
-    @NotEmpty
     private String mAddress;
-    @NotEmpty
     private String mCity;
-    @NotEmpty
     private String mZipCode;
-    @NotEmpty
     @Column(unique = true)
     private String mMobileNo;
-    @NotEmpty
     @Column(unique = true)
     private String mEmail;
     private int mWeight;
@@ -45,41 +36,104 @@ public class Member {
     private String mFat;
 
     //For image upload
-    private long fileSize;
-    private String fileName;
-    @Lob
-    //private byte[] file;
-    private String filePath;
-    private String fileExtension;
+    private String photo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "members_goal_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "m_goal",
+            joinColumns = @JoinColumn(name = "member_id"),
+            inverseJoinColumns = @JoinColumn(name = "member_goal_id")
+    )
     private MembersGoal mGoal;
+
     private String mType;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "m_type_id", referencedColumnName = "membership_type_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "m_type",
+            joinColumns = @JoinColumn(name = "member_id"),
+            inverseJoinColumns = @JoinColumn(name = "member_type_id")
+    )
     private MembershipType membershipType;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "class_time_id", referencedColumnName = "class_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "m_class",
+            joinColumns = @JoinColumn(name = "member_id"),
+            inverseJoinColumns = @JoinColumn(name = "member_class_id")
+    )
     private ClassSchedule classTime;
-    @NotEmpty
+
     private String mStartDate;
-    @NotEmpty
     private String mEndDate;
-    @NotEmpty
     private String mFirstPayment;
 
+    public Members() {
+    }
 
-    public Member() {
+    public Members(Long id) {
+        this.id = id;
+    }
+
+    public Members(Members members) {
+        this.mName = members.mName;
+        this.mFatherName = members.mFatherName;
+        this.mGender = members.mGender;
+        this.mBirthday = members.mBirthday;
+        this.mAddress = members.mAddress;
+        this.mCity = members.mCity;
+        this.mZipCode = members.mZipCode;
+        this.mMobileNo = members.mMobileNo;
+        this.mEmail = members.mEmail;
+        this.mWeight = members.mWeight;
+        this.mHeight = members.mHeight;
+        this.mChest = members.mChest;
+        this.mWaist = members.mWaist;
+        this.mThigh = members.mThigh;
+        this.mArms = members.mArms;
+        this.mFat = members.mFat;
+        this.photo = members.photo;
+        this.mGoal = members.mGoal;
+        this.mType = members.mType;
+        this.membershipType = members.membershipType;
+        this.classTime = members.classTime;
+        this.mStartDate = members.mStartDate;
+        this.mEndDate = members.mEndDate;
+        this.mFirstPayment = members.mFirstPayment;
+    }
+
+    public Members(String mName, String mFatherName, String mGender, String mBirthday, String mAddress, String mCity, String mZipCode, String mMobileNo, String mEmail, int mWeight, String mHeight, int mChest, int mWaist, int mThigh, int mArms, String mFat, String photo, MembersGoal mGoal, String mType, MembershipType membershipType, ClassSchedule classTime, String mStartDate, String mEndDate, String mFirstPayment) {
+        this.mName = mName;
+        this.mFatherName = mFatherName;
+        this.mGender = mGender;
+        this.mBirthday = mBirthday;
+        this.mAddress = mAddress;
+        this.mCity = mCity;
+        this.mZipCode = mZipCode;
+        this.mMobileNo = mMobileNo;
+        this.mEmail = mEmail;
+        this.mWeight = mWeight;
+        this.mHeight = mHeight;
+        this.mChest = mChest;
+        this.mWaist = mWaist;
+        this.mThigh = mThigh;
+        this.mArms = mArms;
+        this.mFat = mFat;
+        this.photo = photo;
+        this.mGoal = mGoal;
+        this.mType = mType;
+        this.membershipType = membershipType;
+        this.classTime = classTime;
+        this.mStartDate = mStartDate;
+        this.mEndDate = mEndDate;
+        this.mFirstPayment = mFirstPayment;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long mId) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -211,44 +265,12 @@ public class Member {
         this.mFat = mFat;
     }
 
-    public long getFileSize() {
-        return fileSize;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setFileSize(long fileSize) {
-        this.fileSize = fileSize;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-//    public byte[] getFile() {
-//        return file;
-//    }
-//
-//    public void setFile(byte[] file) {
-//        this.file = file;
-//    }
-
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
-
-    public String getFileExtension() {
-        return fileExtension;
-    }
-
-    public void setFileExtension(String fileExtension) {
-        this.fileExtension = fileExtension;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public MembersGoal getmGoal() {
