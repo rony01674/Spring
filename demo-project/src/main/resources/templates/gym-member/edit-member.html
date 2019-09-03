@@ -4,7 +4,7 @@
       layout:decorate="~{fragments/layout.html}">
 <head>
     <meta charset="UTF-8">
-    <title>CrossFit | Member's Profile</title>
+    <title>CrossFit | Edit Member's Details</title>
 </head>
 <body>
 <!-- body area -->
@@ -42,7 +42,7 @@
                 <hr/>
                 <br/>
 
-                <form action="#" th:action="@{/edit-member/} + ${mId}" th:object="${memberEdit}" method="POST">
+                <form th:action="@{/edit-member/} + ${id}" th:object="memberEdit" method="POST">
 
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>

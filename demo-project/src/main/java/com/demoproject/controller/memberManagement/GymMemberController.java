@@ -65,7 +65,6 @@ public class GymMemberController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
             Files.write(path, bytes);
-            ;
             Member member = new Member();
             member.setFileName(file.getOriginalFilename());
             member.setFileSize(file.getSize());
@@ -97,20 +96,30 @@ public class GymMemberController {
         return "gym-member/members-list";
     }
 
-    @GetMapping(value = "/edit-member/{mId}")
-    public String editView(Model model, @PathVariable("mId") Long id) {
+    @GetMapping(value = "/edit-member/{id}")
+    public String editView(Model model, @PathVariable("id") Long id) {
         model.addAttribute("memberEdit", this.repo.getOne(id));
         return "gym-member/edit-member";
     }
 
-    @PostMapping("/edit-member/{mId}")
-    public String edit(@Valid Member member, @PathVariable("mId") Long id) {
-        this.repo.save(member);
-        return "redirect:/member-list";
+    @PostMapping("/edit-member/{id}")
+    public String editMember(@Valid Member member, BindingResult result, @PathVariable("id") Long id) {
+        if (result.hasErrors()) {
+            return "gym-member/edit-member";
+        } else {
+            this.repo.save(member);
+        }
+        return "redirect:/members-list";
     }
 
+
     @GetMapping(value = "/member-profile")
-    public String memberProfile() {
+    public String memberProfile(Model model) {
+        model.addAttribute("members", new Member());
+        model.addAttribute("profile",this.repo.findAll());
+        model.addAttribute("goal", this.goalRepo.findAll());
+        model.addAttribute("msType", this.typeRepo.findAll());
+        model.addAttribute("classTime", this.classRepo.findAll());
         return "gym-member/member-profile";
     }
 }

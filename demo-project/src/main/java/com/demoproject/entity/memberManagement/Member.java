@@ -14,7 +14,7 @@ public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long mId;
+    private Long id;
 
     @NotEmpty
     private String mName;
@@ -75,12 +75,12 @@ public class Member {
     public Member() {
     }
 
-    public Long getmId() {
-        return mId;
+    public Long getId() {
+        return id;
     }
 
-    public void setmId(Long mId) {
-        this.mId = mId;
+    public void setId(Long mId) {
+        this.id = id;
     }
 
     public String getmName() {

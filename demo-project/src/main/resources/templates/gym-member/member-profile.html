@@ -44,11 +44,11 @@
 
                 <form>
 
-                    <div class="row">
+                    <div class="row" th:each="pList : ${profile}">
                         <div class="col-lg-7 border d-flex justify-content-start">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <img th:src="@{/images/rony.jpg}" width="200" height="250"/>
+                                    <img th:src="@{${pList.getFilePath()}}" width="200" height="250"/>
                                 </div>
                                 <div class="col-lg-1">
 
@@ -64,7 +64,7 @@
                                             </p>
                                         </div>
                                         <div class="col-lg-6">
-                                            <p class="colors">12354</p>
+                                            <p class="colors" th:text="${pList.id}"></p>
                                         </div>
                                     </div>
 
@@ -78,7 +78,7 @@
                                             </p>
                                         </div>
                                         <div class="col-lg-6">
-                                            <p class="colors">Asaduzzaman Rony</p>
+                                            <p class="colors" th:text="${pList.mName}"></p>
                                         </div>
                                     </div>
 
@@ -92,7 +92,7 @@
                                             </p>
                                         </div>
                                         <div class="col-lg-6">
-                                            <p class="colors">Manik Chan</p>
+                                            <p class="colors" th:text="${pList.mFatherName}"></p>
                                         </div>
                                     </div>
 
@@ -106,7 +106,7 @@
                                             </p>
                                         </div>
                                         <div class="col-lg-6">
-                                            <p class="colors">Fatullah, Narayanganj</p>
+                                            <p class="colors" th:text="${pList.mAddress}"></p>
                                         </div>
                                     </div>
 
@@ -120,7 +120,7 @@
                                             </p>
                                         </div>
                                         <div class="col-lg-6">
-                                            <p class="colors">rony01674@gmail.com</p>
+                                            <p class="colors" th:text="${pList.mEmail}"></p>
                                         </div>
                                     </div>
 
@@ -134,7 +134,7 @@
                                             </p>
                                         </div>
                                         <div class="col-lg-6">
-                                            <p class="colors">+8801684627575</p>
+                                            <p class="colors" th:text="${pList.mMobileNo}"></p>
                                         </div>
                                     </div>
 
@@ -148,7 +148,7 @@
                                             </p>
                                         </div>
                                         <div class="col-lg-6">
-                                            <p class="colors">24 March, 1993</p>
+                                            <p class="colors" th:text="${pList.mBirthday}"></p>
                                         </div>
                                     </div>
 
@@ -162,23 +162,10 @@
                                             </p>
                                         </div>
                                         <div class="col-lg-6">
-                                            <p class="colors">Male</p>
+                                            <p class="colors" th:text="${pList.mGender}"></p>
                                         </div>
                                     </div>
 
-                                    <div class="row border-bottom">
-                                        <div class="col-lg-6">
-                                            <p>
-                                            <span class="icon text-black-50">
-                                                <i class="fa fa-user"></i>
-                                            </span>
-                                                Username
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <p class="colors">Rony</p>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -199,7 +186,7 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-6">
-                                        <p class="colors">Evening</p>
+                                        <p class="colors" th:text="${pList.classTime.className}"></p>
                                     </div>
                                 </div>
 
@@ -213,7 +200,7 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-6">
-                                        <p class="colors">Weight Gain</p>
+                                        <p class="colors" th:text="${pList.mGoal.goalName}"></p>
                                     </div>
                                 </div>
 
@@ -242,7 +229,7 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-6">
-                                        <p class="colors">Gold</p>
+                                        <p class="colors" th:text="${pList.membershipType.membershipName}"></p>
                                     </div>
                                 </div>
 
@@ -257,7 +244,7 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-6">
-                                        <p class="colors">20 July, 2019</p>
+                                        <p class="colors" th:text="${pList.mStartDate}"></p>
                                     </div>
                                 </div>
 
@@ -271,7 +258,7 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-6">
-                                        <p class="colors">20 July, 2020</p>
+                                        <p class="colors" th:text="${pList.mEndDate}"></p>
                                     </div>
                                 </div>
 
@@ -285,7 +272,7 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-6">
-                                        <p class="colors">20000</p>
+                                        <p class="colors"></p>
                                     </div>
                                 </div>
 
@@ -299,7 +286,7 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-6">
-                                        <p class="colors">20000</p>
+                                        <p class="colors"></p>
                                     </div>
                                 </div>
 
@@ -313,7 +300,7 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-6">
-                                        <p class="colors">Not Paid</p>
+                                        <p class="colors"></p>
                                     </div>
                                 </div>
 

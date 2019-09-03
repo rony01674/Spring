@@ -8,16 +8,16 @@ public class WorkoutManagementController {
 
     @GetMapping(value = "/add-body-measurement")
     public String addMeasurement(){
-        return "workoutManagement/add-measurement";
+        return "workout-management/add-measurement";
     }
 
     @GetMapping(value = "/workout-list")
     public String viewMeasurement(){
-        return "workoutManagement/workout-list";
+        return "workout-management/workout-list";
     }
 
     @GetMapping(value = "/add-workout")
     public String addDailyWorkout(){
-        return "workoutManagement/add-daily-workout";
+        return "workout-management/assign-workout";
     }
 }
