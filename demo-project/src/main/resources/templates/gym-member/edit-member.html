@@ -42,7 +42,7 @@
                 <hr/>
                 <br/>
 
-                <form th:action="@{/edit-member/}+ ${id}" th:object="memberEdit" method="POST">
+                <form th:action="@{/edit-member/{id}(id=${memberEdit.id})}" th:object="${memberEdit}" method="POST">
 
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
